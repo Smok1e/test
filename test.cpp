@@ -2,7 +2,7 @@
 
 //----------------------------------------------------------------------------
 
-void drawMan (int x, int y, int sizeX, int sizeY, COLORREF color);
+void drawMan (int x, int y, int scale, COLORREF color);
 void moveMan ();
 
 //----------------------------------------------------------------------------
@@ -12,37 +12,30 @@ int main()
 
     txCreateWindow (800, 600);
 
-    drawMan (400, 300, 400, 400, TX_CYAN);
+    drawMan (400, 300, 2, TX_LIGHTCYAN);
 
     return 0;
 
 }
 
-void drawMan (int x, int y, int sizeX, int sizeY, COLORREF color)
+void drawMan (int x, int y, int scale, COLORREF color)
 {
 
-    txSetColor (color, 3);
+    txSetColor (color, scale);
     txSetFillColor(TX_BLACK);
 
-    txLine (x, y, sizeX, sizeY);
+    txLine (x, y, x, y + scale * 40);
 
-    txLine (x, y, x + sizeY - y / 2, y + sizeY / 2);
-    txLine (x, y, x - sizeY - y / 2, y + sizeY / 2);
+    txLine (x, y + scale * 5, x + scale * 7, y + scale * 25);
+    txLine (x, y + scale * 5, x - scale * 7, y + scale * 25);
 
-    txLine (sizeX, sizeY, sizeX + 30, sizeY + sizeY / 2);
-    txLine (sizeX, sizeY, sizeX - 30, sizeY + sizeY / 2);
+    txLine (x, y + scale * 40, x + scale * 10, y + scale * 40 + scale * 20);
+    txLine (x, y + scale * 40, x - scale * 10, y + scale * 40 + scale * 20);
 
-    txCircle (x, y - 50, 50);
+    txCircle (x, y - scale * 5, scale * 10);
 
 
 }
-
-//void moveMan (int fromX, int fromY, int toX, int toY, int time)
-//{
-
-//    drawMan (fromX, fromY, );
-
-//}
 
 
 //----------------------------------------------------------------------------
