@@ -1,0 +1,48 @@
+#include "TXLib.h"
+
+//----------------------------------------------------------------------------
+
+void drawMan (int x, int y, int sizeX, int sizeY, COLORREF color);
+void moveMan ();
+
+//----------------------------------------------------------------------------
+
+int main()
+{
+
+    txCreateWindow (800, 600);
+
+    drawMan (400, 300, 400, 400, TX_CYAN);
+
+    return 0;
+
+}
+
+void drawMan (int x, int y, int sizeX, int sizeY, COLORREF color)
+{
+
+    txSetColor (color, 3);
+    txSetFillColor(TX_BLACK);
+
+    txLine (x, y, sizeX, sizeY);
+
+    txLine (x, y, x + 25, y + 50);
+    txLine (x, y, x - 25, y + 50);
+
+    txLine (sizeX, sizeY, sizeX + 30, sizeY + 50);
+    txLine (sizeX, sizeY, sizeX - 30, sizeY + 50);
+
+    txCircle (x, y - 50, 50);
+
+
+}
+
+void moveMan ()
+{
+
+    
+
+}
+
+
+//----------------------------------------------------------------------------
