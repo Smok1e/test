@@ -10,10 +10,14 @@ void moveMan (int fromX, int fromY, int toX, int toY, int scale, COLORREF color,
 int main()
 {
 
+    int x = 100;
+    int y = 200;
+    int scale = 4;
+
     txCreateWindow (800, 600);
 
-    drawMan (100, 300, 2, TX_LIGHTCYAN);
-    moveMan (100, 300, 500, 300, 2, TX_LIGHTCYAN, TX_BLACK, 400, 1000);
+    drawMan (x, y, scale, TX_LIGHTCYAN);
+    moveMan (x, y, 700, y, scale, TX_LIGHTCYAN, TX_BLACK, 200, 500);
 
     return 0;
 
@@ -37,7 +41,6 @@ void drawMan (int x, int y, int scale, COLORREF color)
 
     txCircle (x, y - scale * 5, scale * 10);
 
-
 }
 
 //----------------------------------------------------------------------------
@@ -48,7 +51,7 @@ void moveMan (int fromX, int fromY, int toX, int toY, int scale, COLORREF color,
     int x = fromX;
     int y = fromY;
 
-    for (int i = 0; i <= steps; i++)
+    for (int i = 0; i <= steps && !_kbhit (); i++)
     {
 
         txSleep (time / steps);
@@ -64,6 +67,5 @@ void moveMan (int fromX, int fromY, int toX, int toY, int scale, COLORREF color,
     }
 
 }
-
 
 //----------------------------------------------------------------------------
